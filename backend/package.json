@@ -1,0 +1,37 @@
+{
+  "name": "menu-del-dia-backend",
+  "version": "1.0.0",
+  "description": "Backend for Menú del Día app - a location-based platform for finding lunch offers in Tenerife",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.0",
+    "multer": "^1.4.5-lts.1",
+    "@google-cloud/vision": "^4.0.1",
+    "openai": "^4.10.0",
+    "firebase-admin": "^11.10.1"
+  },
+  "devDependencies": {
+    "jest": "^29.6.4",
+    "nodemon": "^3.0.1",
+    "supertest": "^6.3.3"
+  },
+  "keywords": [
+    "menu",
+    "restaurant",
+    "tenerife",
+    "food",
+    "lunch"
+  ],
+  "author": "",
+  "license": "ISC"
+} 

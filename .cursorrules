@@ -1,0 +1,57 @@
+1. Database Structure
+Users: id, name, email, password, favorites (array of restaurant IDs), created_at, updated_at
+
+Restaurants: id, name, location (latitude, longitude), cuisine_type, dietary_options (array), phone_number, subscription_tier (base/premium), created_at, updated_at
+
+Menus: id, restaurant_id, type (lunch/dinner), starter, main, dessert, price, photo_url, tags (array, e.g., "seafood", "vegan"), is_exclusive, hours (e.g., "12-4 PM"), created_at, updated_at
+
+Reviews: id, user_id, restaurant_id, rating (1-5), comment, created_at, updated_at
+
+2. File Structure
+Frontend:
+/src/components: Reusable UI (e.g., MenuCard, FilterBar)
+
+/src/pages: Screens (e.g., Home, RestaurantList, MenuDetails)
+
+/src/services: API calls (e.g., fetchRestaurants)
+
+/src/styles: Global styles, fun colors, quirky fonts
+
+Backend:
+/api/controllers: Logic for requests (e.g., menuUploadController)
+
+/api/models: DB schemas (e.g., User.js)
+
+/api/routes: Endpoints (e.g., /restaurants, /menus)
+
+/api/middleware: Auth, validation
+
+3. Frameworks and Tools
+Frontend: React Native (hybrid for iOS, Android, web)
+
+Backend: Node.js + Express.js
+
+Database: MongoDB (flexible for tags and arrays)
+
+Authentication: JWT (JSON Web Tokens)
+
+OCR + LLM: Google Cloud Vision (OCR), OpenAI (parse menu text)
+
+Notifications: Firebase Cloud Messaging
+
+4. Dependent Files
+.env: Store secrets (API keys, DB URL)
+
+config.js: DB connection settings
+
+package.json: List dependencies
+
+5. Development Guidelines
+Use Git: Main branch + feature branches (e.g., feature/menu-upload)
+
+RESTful APIs: e.g., GET /restaurants/nearby, POST /menus
+
+Test: Unit tests for auth, menu parsing
+
+Style: Fun, colorful UI (e.g., yellows, oranges, playful icons)
+
