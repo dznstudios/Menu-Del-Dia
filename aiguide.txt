@@ -1,0 +1,795 @@
+Menú del Día Flutter App Project Outline
+
+Overview
+
+The Menú del Día app helps users in Spain find daily lunch deals offered by nearby restaurants. Users can browse, filter, and save deals, while restaurant owners can upload their daily menus. The app targets people living in Spain, tourists, and restaurant owners, focusing on simplicity and usability.
+
+Goals
+
+
+
+
+
+Allow customers to discover nearby lunch deals with filters (proximity, price, ingredients).
+
+
+
+Enable restaurant owners to upload daily menus with descriptions, prices, and tags.
+
+
+
+Provide a cross-platform app for iOS and Android using Flutter.
+
+Target Audience
+
+
+
+
+
+Customers: Residents and tourists in Spain looking for affordable daily lunch options.
+
+
+
+Restaurant Owners: Local businesses wanting to promote their daily specials.
+
+Key Features
+
+For Customers
+
+
+
+
+
+Filter deals by proximity (e.g., 1km, 5km), price range, and cuisine/ingredient tags (e.g., meat, fish, pasta).
+
+
+
+View a list or map of nearby lunch deals.
+
+
+
+See restaurant details, including menu, price, tags, and user reviews.
+
+
+
+Save favorite menus or restaurants.
+
+
+
+Write and submit reviews.
+
+
+
+Share deals via external apps (e.g., WhatsApp).
+
+
+
+Receive push notifications for new deals or recommendations.
+
+
+
+Access saved menus offline.
+
+For Restaurant Owners
+
+
+
+
+
+Upload daily menus with description, price, and tags.
+
+
+
+Manage their restaurant’s menu listings (subscription status handled externally).
+
+General
+
+
+
+
+
+User account system for saving favorites and writing reviews.
+
+
+
+Default language: Spanish, with English option.
+
+
+
+Integration with Google Maps for directions.
+
+Technical Stack
+
+
+
+
+
+Frontend: Flutter (cross-platform for iOS and Android).
+
+
+
+Backend: Firebase (Authentication, Firestore, Cloud Messaging, Storage).
+
+
+
+State Management: Provider (simple and beginner-friendly).
+
+
+
+Navigation: Basic Navigator (Flutter’s default navigation).
+
+
+
+Packages:
+
+
+
+
+
+firebase_auth: User authentication.
+
+
+
+cloud_firestore: Data storage.
+
+
+
+firebase_messaging: Push notifications.
+
+
+
+firebase_storage: Image storage.
+
+
+
+google_maps_flutter: Map integration.
+
+
+
+geolocator: User location.
+
+
+
+share_plus: Sharing deals.
+
+
+
+sqflite: Offline storage.
+
+
+
+flutter_localizations: Spanish/English support.
+
+App Architecture
+
+
+
+
+
+Folder Structure:
+
+
+
+
+
+lib/screens/: For all screen files.
+
+
+
+lib/widgets/: Reusable UI components.
+
+
+
+lib/models/: Data models (e.g., User, Restaurant).
+
+
+
+lib/services/: Backend and utility functions (e.g., Firebase, location).
+
+
+
+lib/constants/: Strings, colors, etc.
+
+
+
+Use Material Design for a consistent, beginner-friendly UI.
+
+
+
+Keep code modular and clean (separate logic from UI).
+
+Screens
+
+1. Splash Screen
+
+
+
+
+
+Displays app logo and a loading indicator while checking user login status.
+
+2. Welcome Screen
+
+
+
+
+
+Buttons: "Login" and "Register".
+
+3. Login Screen
+
+
+
+
+
+Fields: Email, Password.
+
+
+
+Buttons: "Login", "Forgot Password?" (optional), "Register" link.
+
+4. Register Screen
+
+
+
+
+
+Fields: Name, Email, Password.
+
+
+
+Buttons: "Register", "Login" link.
+
+5. Main Screen (List View)
+
+
+
+
+
+App bar with search bar (search by tags) and filter button.
+
+
+
+List of restaurant cards showing:
+
+
+
+
+
+Image, name, distance, menu description, price, tags.
+
+
+
+Floating action button to switch to Map View.
+
+6. Map View Screen
+
+
+
+
+
+Google Map with markers for restaurants offering deals.
+
+
+
+Tapping a marker shows a bottom sheet with basic restaurant details.
+
+7. Restaurant Details Screen
+
+
+
+
+
+Shows menu description, price, tags.
+
+
+
+List of user reviews.
+
+
+
+Buttons: "Save as Favorite", "Share", "Get Directions".
+
+8. User Profile Screen
+
+
+
+
+
+Displays user name and profile picture.
+
+
+
+List of saved menus or restaurants.
+
+
+
+Button to "Write a Review".
+
+9. Write Review Screen
+
+
+
+
+
+Rating (1-5 stars).
+
+
+
+Comment text field.
+
+
+
+"Submit" button.
+
+10. Restaurant Owner Dashboard
+
+
+
+
+
+List of their uploaded menus.
+
+
+
+Button to "Upload New Menu".
+
+11. Upload Menu Screen
+
+
+
+
+
+Fields: Description (text), Price (number), Tags (multi-select chips: meat, fish, pasta, rice, salad, healthy option).
+
+
+
+"Upload" button.
+
+Data Models
+
+User
+
+
+
+
+
+id: String (Firebase UID).
+
+
+
+name: String.
+
+
+
+email: String.
+
+
+
+profilePicture: String (URL).
+
+
+
+isRestaurantOwner: Boolean.
+
+Restaurant
+
+
+
+
+
+id: String.
+
+
+
+name: String.
+
+
+
+address: String.
+
+
+
+location: Map (latitude, longitude).
+
+
+
+contactInfo: String.
+
+
+
+ownerId: String (links to User).
+
+
+
+isSubscribed: Boolean (set externally).
+
+Menu
+
+
+
+
+
+id: String.
+
+
+
+restaurantId: String.
+
+
+
+description: String.
+
+
+
+price: Double.
+
+
+
+tags: List (e.g., ["meat", "pasta"]).
+
+
+
+date: Timestamp.
+
+Review
+
+
+
+
+
+id: String.
+
+
+
+restaurantId: String.
+
+
+
+userId: String.
+
+
+
+rating: Integer (1-5).
+
+
+
+comment: String.
+
+
+
+timestamp: Timestamp.
+
+Favorite
+
+
+
+
+
+id: String.
+
+
+
+userId: String.
+
+
+
+menuId: String (or restaurantId if saving restaurants).
+
+Backend Setup
+
+
+
+
+
+Firebase Setup:
+
+
+
+
+
+Create a Firebase project in the console.
+
+
+
+Enable Authentication (Email/Password).
+
+
+
+Set up Firestore with collections: users, restaurants, menus, reviews, favorites.
+
+
+
+Enable Cloud Messaging for notifications.
+
+
+
+Enable Storage for images (restaurant/menu photos).
+
+
+
+Firestore Collections:
+
+
+
+
+
+users: Stores user data.
+
+
+
+restaurants: Stores restaurant info.
+
+
+
+menus: Stores daily deals.
+
+
+
+reviews: Stores user reviews.
+
+
+
+favorites: Stores user favorites (or as a subcollection under users).
+
+Development Steps
+
+Step 1: Project Setup
+
+
+
+
+
+Install Flutter and set up an IDE (e.g., VS Code).
+
+
+
+Run flutter create menu_del_dia.
+
+
+
+Add dependencies in pubspec.yaml:
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^2.24.0
+  firebase_auth: ^4.16.0
+  cloud_firestore: ^4.14.0
+  firebase_messaging: ^14.7.0
+  firebase_storage: ^11.6.0
+  google_maps_flutter: ^2.5.0
+  geolocator: ^10.1.0
+  share_plus: ^7.2.0
+  sqflite: ^2.3.0
+  flutter_localizations:
+    sdk: flutter
+
+
+
+Initialize Firebase: Run flutterfire configure and follow prompts.
+
+Step 2: Authentication
+
+
+
+
+
+Set up Firebase Authentication in lib/services/auth_service.dart.
+
+
+
+Implement login/register/logout functions.
+
+
+
+Create Welcome, Login, and Register screens with text fields and buttons.
+
+Step 3: Data Models
+
+
+
+
+
+Create model classes in lib/models/ (e.g., user.dart, restaurant.dart).
+
+
+
+Add toJson() and fromJson() methods for Firestore compatibility.
+
+Step 4: Backend Integration
+
+
+
+
+
+Write service functions in lib/services/firestore_service.dart to:
+
+
+
+
+
+Add/get users, restaurants, menus, reviews, favorites.
+
+
+
+Example: Fetch restaurants:
+
+Future<List<Restaurant>> getRestaurants() async {
+  QuerySnapshot snapshot = await FirebaseFirestore.instance.collection('restaurants').get();
+  return snapshot.docs.map((doc) => Restaurant.fromJson(doc.data())).toList();
+}
+
+Step 5: Location Handling
+
+
+
+
+
+Request location permission using geolocator.
+
+
+
+Get user’s current position and calculate distance to restaurants.
+
+Step 6: Main Screen (List View)
+
+
+
+
+
+Fetch restaurants and menus from Firestore.
+
+
+
+Display in a ListView with cards.
+
+
+
+Add search (filter by tags) and filters (proximity, price).
+
+Step 7: Map View
+
+
+
+
+
+Integrate google_maps_flutter.
+
+
+
+Add markers for restaurants based on their location.
+
+
+
+Show details in a bottom sheet on marker tap.
+
+Step 8: Restaurant Details
+
+
+
+
+
+Fetch menu and reviews for a selected restaurant.
+
+
+
+Display details and add buttons for save/share/directions.
+
+Step 9: User Profile
+
+
+
+
+
+Show saved favorites (fetch from favorites collection).
+
+
+
+Add review-writing functionality.
+
+Step 10: Restaurant Owner Features
+
+
+
+
+
+Allow owners to see their restaurant (filter by ownerId).
+
+
+
+Create an upload form for menus with tags as chips.
+
+Step 11: Push Notifications
+
+
+
+
+
+Set up firebase_messaging.
+
+
+
+Send test notifications (e.g., when a new menu is uploaded).
+
+Step 12: Offline Access
+
+
+
+
+
+Use sqflite to save favorite menus locally.
+
+
+
+Load cached data when offline.
+
+Step 13: Localization
+
+
+
+
+
+Add Spanish and English strings in lib/l10n/.
+
+
+
+Use flutter_localizations to switch languages.
+
+Step 14: Testing
+
+
+
+
+
+Test on iOS/Android emulators/devices.
+
+
+
+Check UI, authentication, data fetching, offline mode, and notifications.
+
+Step 15: Deployment
+
+
+
+
+
+Build and submit to Google Play Store and Apple App Store.
+
+Best Practices
+
+
+
+
+
+Use Git: git init, commit often (e.g., git commit -m "Add login screen").
+
+
+
+Store strings/colors in lib/constants/.
+
+
+
+Handle errors (e.g., no internet) with loading indicators and messages.
+
+
+
+Test on multiple screen sizes (use MediaQuery for responsiveness).
+
+Notes
+
+
+
+
+
+Restaurant subscriptions are managed externally; check isSubscribed to prioritize listings.
+
+
+
+Keep tags simple (manual selection by owners, not AI).
+
+
+
+Start with fetching all restaurants and filtering locally; optimize later if needed.
+
+This outline provides a clear roadmap for building the app from scratch.

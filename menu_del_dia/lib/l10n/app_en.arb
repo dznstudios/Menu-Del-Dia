@@ -1,0 +1,103 @@
+{
+  "@@locale": "en",
+  "appTitle": "Menu del Dia",
+  "@appTitle": {
+    "description": "Title of the application"
+  },
+  "welcomeMessage": "Welcome",
+  "@welcomeMessage": {
+    "description": "Welcome message on the welcome screen"
+  },
+  "login": "Login",
+  "@login": {
+    "description": "Login button text"
+  },
+  "register": "Register",
+  "@register": {
+    "description": "Register button text"
+  },
+  "email": "Email",
+  "@email": {
+    "description": "Email text field label"
+  },
+  "password": "Password",
+  "@password": {
+    "description": "Password text field label"
+  },
+  "restaurants": "Restaurants",
+  "@restaurants": {
+    "description": "Restaurants label"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "Profile screen title"
+  },
+  "favorites": "Favorites",
+  "@favorites": {
+    "description": "Favorites label"
+  },
+  "owner": "Owner",
+  "@owner": {
+    "description": "Owner screen title"
+  },
+  "addRestaurant": "Add Restaurant",
+  "@addRestaurant": {
+    "description": "Add restaurant button text"
+  },
+  "editRestaurant": "Edit Restaurant",
+  "@editRestaurant": {
+    "description": "Edit restaurant button text"
+  },
+  "deleteRestaurant": "Delete Restaurant",
+  "@deleteRestaurant": {
+    "description": "Delete restaurant button text"
+  },
+  "save": "Save",
+  "@save": {
+    "description": "Save button text"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button text"
+  },
+  "restaurantName": "Restaurant Name",
+  "@restaurantName": {
+    "description": "Restaurant name text field label"
+  },
+  "address": "Address",
+  "@address": {
+    "description": "Address text field label"
+  },
+  "latitude": "Latitude",
+  "@latitude": {
+    "description": "Latitude text field label"
+  },
+  "longitude": "Longitude",
+  "@longitude": {
+    "description": "Longitude text field label"
+  },
+  "tags": "Tags",
+  "@tags": {
+    "description": "Tags label"
+  },
+  "getDirections": "Get Directions",
+  "@getDirections": {
+    "description": "Get directions button text"
+  },
+  "writeReview": "Write Review",
+  "@writeReview": {
+    "description": "Write review button text"
+  },
+  "search": "Search",
+  "@search": {
+    "description": "Search bar hint text"
+  },
+  "proximity": "Proximity",
+  "@proximity": {
+    "description": "Proximity filter label"
+  },
+  "price": "Price",
+  "@price": {
+    "description": "Price filter label"
+  }
+}
