@@ -56,6 +56,16 @@ class _OwnerScreenState extends State<OwnerScreen> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         IconButton(
+                          icon: const Icon(Icons.restaurant_menu),
+                          onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              '/menu_form',
+                              arguments: restaurant.id,
+                            );
+                          },
+                        ),
+                        IconButton(
                           icon: const Icon(Icons.edit),
                           onPressed: () {
                             Navigator.pushNamed(

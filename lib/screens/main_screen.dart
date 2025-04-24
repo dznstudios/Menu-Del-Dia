@@ -104,7 +104,7 @@ class _MainScreenState extends State<MainScreen> {
                           ListTile(
                             title: const Text("Sort by Proximity"),
                             onTap: () {
-                              _sortByProximity();
+                              _sortByProximity(Provider.of<LocationProvider>(context, listen: false).currentPosition);
                               Navigator.pop(context);
                             },
                           ),
@@ -176,6 +176,11 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ),
         ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, '/map'),
+        child: const Icon(Icons.map),
       ),
     );
   }

@@ -1,6 +1,6 @@
 {
-    "name": "myapp",
-    "short_name": "myapp",
+    "name": "menu_del_dia",
+    "short_name": "menu_del_dia",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -152,7 +152,20 @@ class _RestaurantDetailsScreenState extends State<RestaurantDetailsScreen> {
             _menus.isEmpty
                 ? const Text("No menus available.")
                 : Column(
-                    children: _menus.map((menu) => ListTile(title: Text(menu['name'] ?? ''))).toList(),
+                    children: _menus.map((menu) {
+                      final tags = (menu['tags'] as List<dynamic>?) ?? [];
+                      return Card(
+                        margin: const EdgeInsets.symmetric(vertical: 4.0),
+                        child: ListTile(
+                          title: Text(menu['description'] ?? ''),
+                          subtitle: Text('€${(menu['price'] as num?)?.toStringAsFixed(2) ?? ''}'),
+                          trailing: Wrap(
+                            spacing: 4.0,
+                            children: tags.map((t) => Chip(label: Text(t.toString()))).toList(),
+                          ),
+                        ),
+                      );
+                    }).toList(),
                   ),
             const SizedBox(height: 20),
             Text(
